@@ -3,22 +3,22 @@ function init(){
         el: "#app",
         data:{
             records: '',
-            genre : [],
             genreUnique:[],
-            recordsFiltered:''
+            recordsFiltered:'',
+            choosenGenre: '',
         },
         methods:{
             showGenre: function(){
-                console.log("ciao");
-                // this.recordsFiltered=this.records.filter(elem=>{
-                //     console.log("ciclo", elem['genre']);
-                //     console.log("parametr", value);
+                
+                this.recordsFiltered=this.records.filter(elem=>{
 
-                //     if(elem['genre'].toLowerCase() == value.toLowerCase()){
-                //         return elem;
-                //     }
-                // });
-                // console.log(this.recordsFiltered);
+                    if(elem['genre'].toLowerCase() == this.choosenGenre.toLowerCase()){
+                        return elem;
+                    } else if(this.choosenGenre == ''){
+                        return elem;
+                    }
+                });
+                
             },
         },
 
@@ -30,14 +30,6 @@ function init(){
                     //creo array di dati
                     const res = data['data']['response'];
                     this.records = res;
-                    
-                    // array con tutti i valori
-                    this.genre= this.records.map(elem => {
-                        const record = elem;
-                        const genre = record['genre'];
-                        return genre;
-                    })
-                    console.log(this.genre);
                     
                     // array con solo valori unitari
                     this.records.forEach(elem => {
