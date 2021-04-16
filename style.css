@@ -13,6 +13,7 @@ body{
     width: 80%;
     margin: auto;
     text-align: center;
+    padding: 20px 0;
 }
 
 /* regole parte NAV : Filtri / research */
@@ -21,12 +22,17 @@ body{
     justify-content: space-around;
     align-items: center;
     border: 1px solid pink;
-    padding: 50px 0;
+    padding: 20px 0;
 }
 
 #genres-select{
     margin: 10px 0;
 }
+
+select{
+    font-size: 0.9rem;
+}
+
 
 
 /* regole parte MAIN : visualizzazione dischi */

@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
             <title>Portale musicale</title>
-            <!-- font awesame -->
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+            <!-- font awesome -->
+            
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
             <!-- jquery -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <!-- VueJS -->
@@ -45,10 +46,10 @@
                         <div>
                             <select v-model="chosenSort" @change="sortRecords" name="order-records" id="sort-select">
                                 <option value="">Scegli un'opzione di ordinamento</option>
-                                <option value="by-year-growing">Per anno crescente</option>
-                                <option value="by-year-decreasing">Per anno decrescente</option>
-                                <option value="alphabetical-AZ">Alfabetico AZ</option>
-                                <option value="alphabetical-ZA">Alfabetico ZA</option>
+                                <option class="fa"  value="by-year-growing"> &#xf887; Per anno crescente</option>
+                                <option class="fa"  value="by-year-decreasing"> &#xf886; Per anno decrescente</option>
+                                <option class="fa" value="alphabetical-AZ"> &#xf882; Alfabetico AZ</option>
+                                <option class="fa" value="alphabetical-ZA">&#xf881; Alfabetico ZA</option>
                             </select> 
                         </div>
                     </div>
@@ -59,7 +60,7 @@
                 <main>
                     <ul>
                         <li v-for="elem in recordsFiltered">
-                            <h3>{{elem['title']}}</h3>
+                            <h2>{{elem['title']}}</h2>
                             <img :src="elem['poster']" alt="" width="100px" height="100px">
                             <h4>{{elem['author']}}</h4>
                             <div>{{elem['genre']}}</div>
@@ -69,7 +70,7 @@
                 </main>
                 
             </div>
-            
+
         </div>
         
     </body>
