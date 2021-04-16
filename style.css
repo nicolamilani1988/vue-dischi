@@ -7,9 +7,15 @@
 .container{
     width: 80%;
     margin: auto;
-    padding: 50px 0;
-    border: 1px solid blue;
     text-align: center;
+}
+
+#filters{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid pink;
+    padding: 50px 0;
 }
 
 #genres-select{

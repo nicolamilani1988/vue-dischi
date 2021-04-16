@@ -3,21 +3,24 @@ function init(){
         el: "#app",
         data:{
             records: '',
-            genreUnique:[],
             recordsFiltered:'',
-            choosenGenre: '',
+            genreUnique:[],         
+            chosenGenre: '',
         },
         methods:{
             showGenre: function(){
                 
                 this.recordsFiltered=this.records.filter(elem=>{
 
-                    if(elem['genre'].toLowerCase() == this.choosenGenre.toLowerCase()){
+                    if(elem['genre'].toLowerCase() == this.chosenGenre.toLowerCase()){
                         return elem;
-                    } else if(this.choosenGenre == ''){
-                        return elem;
-                    }
+                    } 
                 });
+
+                if(this.chosenGenre == ''){
+                    alert("scegli un genere valido");
+                    this.recordsFiltered = this.records;
+                }
                 
             },
         },

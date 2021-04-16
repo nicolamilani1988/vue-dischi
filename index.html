@@ -20,25 +20,34 @@
 
     <div id="app">
         <div class="container">
-            <label for="choose-genre">Scegli il genere</label>
-            <div>
-                <select v-model="choosenGenre" @change="showGenre" name="genres" id="genres-select">
-                    <option value="">Scegli un'opzione</option>
-                    <option v-for="elem in genreUnique" :value="elem.toLowerCase()">{{elem.toUpperCase()}}</option>
-                    <!-- <option value="rock">ROCK</option>
-                    <option value="pop">POP</option>
-                    <option value="jazz">JAZZ</option>
-                    <option value="metal">METAL</option> -->
-                </select> 
-            </div>
+            <nav id="filters">
+                <div>
+                    <label for="genre-choice">Scegli il genere</label>
+                    <div>
+                        <select v-model="chosenGenre" @change="showGenre" name="genres" id="genres-select">
+                            <option value="">Scegli un'opzione</option>
+                            <option v-for="elem in genreUnique" :value="elem.toLowerCase()">{{elem.toUpperCase()}}</option>
+                            <!-- <option value="rock">ROCK</option>
+                            <option value="pop">POP</option>
+                            <option value="jazz">JAZZ</option>
+                            <option value="metal">METAL</option> -->
+                        </select> 
+                    </div>  
+                </div>
+                <div>
+                    <button>Ordina per anno</button>
+                </div>
+
+            </nav>
+            
             
             <ul>
                 <li v-for="elem in recordsFiltered">
                     <h3>{{elem['title']}}</h3>
                     <img :src="elem['poster']" alt="" width="100px" height="100px">
                     <h4>{{elem['author']}}</h4>
-                    <h5>{{elem['genre']}}</h5>
-                    <h5>{{elem['year']}}</h5>
+                    <div>{{elem['genre']}}</div>
+                    <div>{{elem['year']}}</div>
                 </li>
             </ul>
         </div>
