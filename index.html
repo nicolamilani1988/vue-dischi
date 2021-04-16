@@ -27,10 +27,10 @@
                 <nav id="filters">
                     <!-- filtra per genere -->
                     <div>
-                        <label for="genre-choice">Scegli il genere</label>
+                        <label for="genre-choice">Filtra per genere</label>
                         <div>
                             <select class="fa fab" v-model="chosenGenre" @change="showGenre" name="genres" id="genres-select">
-                                <option class="fa fab" value="">Scegli un'opzione</option>
+                                <option class="fa fab" value="">Scegli il genere</option>
                                 <option class="fa fab" v-for="(elem,index) in genreUnique" :value="elem.toLowerCase()">{{icons[index]}}  {{elem.toUpperCase()}}</option>
                             </select> 
                         </div>  
@@ -59,13 +59,19 @@
                 <main>
                     <ul>
                         <li v-for="elem in recordsFiltered">
-                            <h2>{{elem['title']}}</h2>
-                            <img :src="elem['poster']" alt="" width="100px" height="100px">
-                            <h4>{{elem['author']}}</h4>
-                            <div>{{elem['genre']}}</div>
-                            <div>{{elem['year']}}</div>
+                            <div>
+                                <h3>{{elem['title']}}</h3>
+                                <img :src="elem['poster']" alt="" width="100px" height="100px">
+                                <h4>{{elem['author']}}</h4>
+                                <div class="small-text">{{elem['genre']}}</div>
+                                <div class="small-text">{{elem['year']}}</div>
+                            </div>
                         </li>
                     </ul>
+                    <!-- barra ricerca -->
+                    <div>
+                        <input type="text" v-model="titleSearch">
+                    </div>
                 </main>
                 
             </div>

@@ -9,6 +9,7 @@ function init(){
             chosenGenre: '', // genere scelto dal menu tendina
             chosenSort: '', // tipo di ordinamento scelto dal menu tendina
             icons: ['','','',''],
+            titleSearch: '',
         },
 
         methods:{
