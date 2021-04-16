@@ -11,7 +11,6 @@ body{
 }   
 
 .container{
-    width: 80%;
     margin: auto;
     text-align: center;
     padding: 20px 0;
@@ -27,8 +26,8 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid pink;
     padding: 20px 0;
+    border-bottom: 1px solid green;
 }
 
 #genres-select, #sort-select{
@@ -54,7 +53,6 @@ body{
 main>ul{
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid red;
     padding: 20px;
 }
 
@@ -62,7 +60,6 @@ main>ul li{
     list-style-type: none;
     width: 20%;
     text-align: center;
-    border: 1px solid green;
     padding: 20px;
 }
 

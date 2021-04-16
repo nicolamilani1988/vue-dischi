@@ -10,6 +10,7 @@ function init(){
             chosenSort: '', // tipo di ordinamento scelto dal menu tendina
             icons: ['','','',''],
             titleSearch: '',
+            researchedTitle: '',
         },
 
         methods:{
@@ -86,6 +87,7 @@ function init(){
 
                 }
             },
+            
         },
 
         mounted(){
@@ -113,6 +115,16 @@ function init(){
                 .catch(() => console.log('error'))
       
         },
+
+        // update() {
+        //     console.log("popo");
+        //     this.recordsFiltered = this.records.filter(elem=>{
+        //         if(this.records['title'].includes(this.titleSearch)){
+        //             return elem;
+        //         }
+        //     })
+                
+        // },
     })
     
 }

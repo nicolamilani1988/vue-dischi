@@ -58,7 +58,7 @@
                 <!-- visualizzazione dischi -->
                 <main>
                     <ul>
-                        <li v-for="elem in recordsFiltered">
+                        <li v-for="elem in recordsFiltered" v-if="elem['title'].toLowerCase().includes(titleSearch.toLowerCase())">
                             <div>
                                 <h3>{{elem['title']}}</h3>
                                 <img :src="elem['poster']" alt="" width="100px" height="100px">
@@ -70,7 +70,7 @@
                     </ul>
                     <!-- barra ricerca -->
                     <div>
-                        <input type="text" v-model="titleSearch">
+                        <input type="text" v-model="titleSearch" placeholder="Cerca titolo">
                     </div>
                 </main>
                 
