@@ -1,43 +1,42 @@
 function init(){
     new Vue ({
         el: "#app",
-        data:{
-            records: '',
-            recordsFiltered:'',
-            genreUnique:[],         
-            chosenGenre: '',
-            chosenSort: '',
-        },
-        methods:{
-            showGenre: function(){
-                
-                this.recordsFiltered=this.records.filter(elem=>{
 
+        data:{
+            records: '', // estraggo dati da server
+            recordsFiltered:'', // dischi filtrati che vedo
+            genreUnique:[], // array di generi trovati
+            chosenGenre: '', // genere scelto dal menu tendina
+            chosenSort: '', // tipo di ordinamento scelto dal menu tendina
+        },
+
+        methods:{
+
+            showGenre: function(){ // faccio vedere solo genere scelto
+                this.recordsFiltered=this.records.filter(elem=>{
                     if(elem['genre'].toLowerCase() == this.chosenGenre.toLowerCase()){
                         return elem;
                     } 
                 });
-
                 if(this.chosenGenre == ''){
                     alert("scegli un genere valido");
                     this.recordsFiltered = this.records;
                 }
-                
             },
 
-            sortByYear: function(){
+            sortByYear: function(){ // funzione ordina per anno crescente
                 this.recordsFiltered.sort(function(a,b){
                     return a['year']- b['year'];
                 })
             },
 
-            sortByYearReverse: function(){
+            sortByYearReverse: function(){ // funzione ordina per anno decrescente
                 this.recordsFiltered.sort(function(a,b){
                     return b['year']- a['year'];
                 })
             },
 
-            sortByAlphabet: function(){
+            sortByAlphabet: function(){ //funzione ordina per autore AZ
                 this.recordsFiltered.sort(function(a,b){
                     var nameA = a.author.toUpperCase(); 
                     var nameB = b.author.toUpperCase();
@@ -51,7 +50,7 @@ function init(){
                   });   
             },
 
-            sortByAlphabetReverse: function(){
+            sortByAlphabetReverse: function(){ //funzione ordina per autore ZA
                 this.recordsFiltered.sort(function(a,b){
                     var nameA = a.author.toUpperCase(); 
                     var nameB = b.author.toUpperCase();
@@ -65,8 +64,7 @@ function init(){
                   });   
             },
 
-            sortRecords: function(){
-                
+            sortRecords: function(){ // scelta del metodo di ordinamento
                 switch(this.chosenSort){
                     case 'alphabetical-AZ':
                         this.sortByAlphabet();
@@ -83,11 +81,9 @@ function init(){
                     case 'by-year-decreasing' :
                         this.sortByYearReverse();
                         break;
-                }
-                    
 
+                }
             },
-                  
         },
 
         mounted(){
@@ -113,8 +109,7 @@ function init(){
 
                 })
                 .catch(() => console.log('error'))
-
-         
+      
         },
     })
     

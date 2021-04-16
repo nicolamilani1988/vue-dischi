@@ -1,7 +1,12 @@
+/* regole generali */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
+    font-family: arial;
 }
 
 .container{
@@ -10,6 +15,7 @@
     text-align: center;
 }
 
+/* regole parte NAV : Filtri / research */
 #filters{
     display: flex;
     justify-content: space-around;
@@ -22,20 +28,22 @@
     margin: 10px 0;
 }
 
-.container>ul{
+
+/* regole parte MAIN : visualizzazione dischi */
+main>ul{
     display: flex;
     flex-wrap: wrap;
     border: 1px solid red;
     padding: 20px;
 }
 
-.container>ul li{
+main>ul li{
     list-style-type: none;
     width: 20%;
     margin-bottom: 50px;
     text-align: center;
 }
 
-.container>ul li>*{
+main>ul li>*{
     margin-bottom: 10px;
 }

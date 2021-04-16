@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-        <title>Portale musicale</title>
-        <!-- font awesame -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-        <!-- jquery -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <!-- VueJS -->
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <!-- VueAxios -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-        <!-- my css -->
-        <link rel="stylesheet" href="style.css">
-        <!-- my script -->
-        <script src="script.js"></script>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+            <title>Portale musicale</title>
+            <!-- font awesame -->
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+            <!-- jquery -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <!-- VueJS -->
+            <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+            <!-- VueAxios -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+            <!-- my css -->
+            <link rel="stylesheet" href="style.css">
+            <!-- my script -->
+            <script src="script.js"></script>
+    </head>
 
-    <div id="app">
-        <div class="container">
-            <!-- parte navigazione / filtri -->
-            <nav id="filters">
-                <!-- filtra per genere -->
-                <div>
-                    <label for="genre-choice">Scegli il genere</label>
+
+    <body>
+
+        <div id="app">
+
+            <div class="container">
+                <!-- parte navigazione / filtri -->
+                <nav id="filters">
+                    <!-- filtra per genere -->
                     <div>
-                        <select v-model="chosenGenre" @change="showGenre" name="genres" id="genres-select">
-                            <option value="">Scegli un'opzione</option>
-                            <option v-for="elem in genreUnique" :value="elem.toLowerCase()">{{elem.toUpperCase()}}</option>
-                            <!-- <option value="rock">ROCK</option>
-                            <option value="pop">POP</option>
-                            <option value="jazz">JAZZ</option>
-                            <option value="metal">METAL</option> -->
-                        </select> 
-                    </div>  
-                </div>
-                <!-- ordina per anno crescente -->
-                <div>
-                    <button @click="sortByYear">Ordina per anno</button>
-                </div>
-                <!-- scegli ordinamento -->
-                <div>
-                    <label for="sort-records">Ordina i dischi</label>
-                    <div>
-                        <select v-model="chosenSort" @change="sortRecords" name="order-records" id="sort-select">
-                            <option value="">Scegli un'opzione di ordinamento</option>
-                            <option value="by-year-growing">Per anno crescente</option>
-                            <option value="by-year-decreasing">Per anno decrescente</option>
-                            <option value="alphabetical-AZ">Alfabetico AZ</option>
-                            <option value="alphabetical-ZA">Alfabetico ZA</option>
-                        </select> 
+                        <label for="genre-choice">Scegli il genere</label>
+                        <div>
+                            <select v-model="chosenGenre" @change="showGenre" name="genres" id="genres-select">
+                                <option value="">Scegli un'opzione</option>
+                                <option v-for="elem in genreUnique" :value="elem.toLowerCase()">{{elem.toUpperCase()}}</option>
+                            </select> 
+                        </div>  
                     </div>
-                </div>
+                    <!-- ordina per anno crescente -->
+                    <div>
+                        <button @click="sortByYear">Ordina per anno</button>
+                    </div>
+                    <!-- scegli ordinamento -->
+                    <div>
+                        <label for="sort-records">Ordina i dischi</label>
+                        <div>
+                            <select v-model="chosenSort" @change="sortRecords" name="order-records" id="sort-select">
+                                <option value="">Scegli un'opzione di ordinamento</option>
+                                <option value="by-year-growing">Per anno crescente</option>
+                                <option value="by-year-decreasing">Per anno decrescente</option>
+                                <option value="alphabetical-AZ">Alfabetico AZ</option>
+                                <option value="alphabetical-ZA">Alfabetico ZA</option>
+                            </select> 
+                        </div>
+                    </div>
 
-            </nav>
+                </nav>
+                
+                <!-- visualizzazione dischi -->
+                <main>
+                    <ul>
+                        <li v-for="elem in recordsFiltered">
+                            <h3>{{elem['title']}}</h3>
+                            <img :src="elem['poster']" alt="" width="100px" height="100px">
+                            <h4>{{elem['author']}}</h4>
+                            <div>{{elem['genre']}}</div>
+                            <div>{{elem['year']}}</div>
+                        </li>
+                    </ul>
+                </main>
+                
+            </div>
             
-            
-            <ul>
-                <li v-for="elem in recordsFiltered">
-                    <h3>{{elem['title']}}</h3>
-                    <img :src="elem['poster']" alt="" width="100px" height="100px">
-                    <h4>{{elem['author']}}</h4>
-                    <div>{{elem['genre']}}</div>
-                    <div>{{elem['year']}}</div>
-                </li>
-            </ul>
         </div>
-    </div>
-    
-</body>
+        
+    </body>
 </html>
