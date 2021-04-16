@@ -3,8 +3,7 @@
     <head>
         <meta charset="utf-8">
             <title>Portale musicale</title>
-            <!-- font awesome -->
-            
+            <!-- font awesome --> 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
             <!-- jquery -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -30,9 +29,9 @@
                     <div>
                         <label for="genre-choice">Scegli il genere</label>
                         <div>
-                            <select v-model="chosenGenre" @change="showGenre" name="genres" id="genres-select">
-                                <option value="">Scegli un'opzione</option>
-                                <option v-for="elem in genreUnique" :value="elem.toLowerCase()">{{elem.toUpperCase()}}</option>
+                            <select class="fa fab" v-model="chosenGenre" @change="showGenre" name="genres" id="genres-select">
+                                <option class="fa fab" value="">Scegli un'opzione</option>
+                                <option class="fa fab" v-for="(elem,index) in genreUnique" :value="elem.toLowerCase()">{{icons[index]}}  {{elem.toUpperCase()}}</option>
                             </select> 
                         </div>  
                     </div>
@@ -44,8 +43,8 @@
                     <div>
                         <label for="sort-records">Ordina i dischi</label>
                         <div>
-                            <select v-model="chosenSort" @change="sortRecords" name="order-records" id="sort-select">
-                                <option value="">Scegli un'opzione di ordinamento</option>
+                            <select class="fa" v-model="chosenSort" @change="sortRecords" name="order-records" id="sort-select">
+                                <option class="fa" value="">Scegli un'opzione di ordinamento</option>
                                 <option class="fa"  value="by-year-growing"> &#xf887; Per anno crescente</option>
                                 <option class="fa"  value="by-year-decreasing"> &#xf886; Per anno decrescente</option>
                                 <option class="fa" value="alphabetical-AZ"> &#xf882; Alfabetico AZ</option>

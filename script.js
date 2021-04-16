@@ -8,6 +8,7 @@ function init(){
             genreUnique:[], // array di generi trovati
             chosenGenre: '', // genere scelto dal menu tendina
             chosenSort: '', // tipo di ordinamento scelto dal menu tendina
+            icons: ['','','',''],
         },
 
         methods:{
