@@ -6,6 +6,7 @@ function init(){
             recordsFiltered:'',
             genreUnique:[],         
             chosenGenre: '',
+            chosenSort: '',
         },
         methods:{
             showGenre: function(){
@@ -24,11 +25,69 @@ function init(){
                 
             },
 
-            orderRecords: function(){
+            sortByYear: function(){
                 this.recordsFiltered.sort(function(a,b){
                     return a['year']- b['year'];
                 })
-            }
+            },
+
+            sortByYearReverse: function(){
+                this.recordsFiltered.sort(function(a,b){
+                    return b['year']- a['year'];
+                })
+            },
+
+            sortByAlphabet: function(){
+                this.recordsFiltered.sort(function(a,b){
+                    var nameA = a.author.toUpperCase(); 
+                    var nameB = b.author.toUpperCase();
+                    if (nameA < nameB) {
+                      return -1;
+                    }
+                    if (nameA > nameB) {
+                      return 1;
+                    }
+                    return 0;
+                  });   
+            },
+
+            sortByAlphabetReverse: function(){
+                this.recordsFiltered.sort(function(a,b){
+                    var nameA = a.author.toUpperCase(); 
+                    var nameB = b.author.toUpperCase();
+                    if (nameA < nameB) {
+                      return 1;
+                    }
+                    if (nameA > nameB) {
+                      return -1;
+                    }
+                    return 0;
+                  });   
+            },
+
+            sortRecords: function(){
+                
+                switch(this.chosenSort){
+                    case 'alphabetical-AZ':
+                        this.sortByAlphabet();
+                        break;
+
+                    case 'alphabetical-ZA':
+                        this.sortByAlphabetReverse();
+                        break;  
+
+                    case 'by-year-growing':
+                        this.sortByYear();
+                        break;
+
+                    case 'by-year-decreasing' :
+                        this.sortByYearReverse();
+                        break;
+                }
+                    
+
+            },
+                  
         },
 
         mounted(){

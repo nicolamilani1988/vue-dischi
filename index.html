@@ -20,7 +20,9 @@
 
     <div id="app">
         <div class="container">
+            <!-- parte navigazione / filtri -->
             <nav id="filters">
+                <!-- filtra per genere -->
                 <div>
                     <label for="genre-choice">Scegli il genere</label>
                     <div>
@@ -34,8 +36,22 @@
                         </select> 
                     </div>  
                 </div>
+                <!-- ordina per anno crescente -->
                 <div>
                     <button @click="sortByYear">Ordina per anno</button>
+                </div>
+                <!-- scegli ordinamento -->
+                <div>
+                    <label for="sort-records">Ordina i dischi</label>
+                    <div>
+                        <select v-model="chosenSort" @change="sortRecords" name="order-records" id="sort-select">
+                            <option value="">Scegli un'opzione di ordinamento</option>
+                            <option value="by-year-growing">Per anno crescente</option>
+                            <option value="by-year-decreasing">Per anno decrescente</option>
+                            <option value="alphabetical-AZ">Alfabetico AZ</option>
+                            <option value="alphabetical-ZA">Alfabetico ZA</option>
+                        </select> 
+                    </div>
                 </div>
 
             </nav>
