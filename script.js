@@ -23,6 +23,12 @@ function init(){
                 }
                 
             },
+
+            orderRecords: function(){
+                this.recordsFiltered.sort(function(a,b){
+                    return a['year']- b['year'];
+                })
+            }
         },
 
         mounted(){
@@ -42,7 +48,7 @@ function init(){
                             this.genreUnique.push(genre);
                         }
                     })
-                    console.log(this.genreUnique);
+
                     // mostro dischi filtrati per genere
                     this.recordsFiltered = this.records;
 
