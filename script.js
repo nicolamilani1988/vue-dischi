@@ -22,7 +22,7 @@ function init(){
                     } 
                 });
                 if(this.chosenGenre == ''){
-                    alert("scegli un genere valido");
+                    //alert("scegli un genere valido");
                     this.recordsFiltered = this.records;
                 }
             },

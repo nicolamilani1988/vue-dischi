@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="./img/favicon.png"/>
             <title>Portale musicale</title>
             <!-- font awesome --> 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -30,7 +31,7 @@
                         <label for="genre-choice">Filtra per genere</label>
                         <div>
                             <select class="fa fab" v-model="chosenGenre" @change="showGenre" name="genres" id="genres-select">
-                                <option class="fa fab" value="">Scegli il genere</option>
+                                <option class="fa fab" value="">Tutti i generi</option>
                                 <option class="fa fab" v-for="(elem,index) in genreUnique" :value="elem.toLowerCase()">{{icons[index]}}  {{elem.toUpperCase()}}</option>
                             </select> 
                         </div>  

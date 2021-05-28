@@ -8,13 +8,13 @@
 body{
     font-family: arial;
     color: white;
+    background-image: url('img/back.jpg');
 }   
 
 .container{
     margin: auto;
     text-align: center;
     padding: 20px 0;
-    background-image: url('img/back.jpg');
 }
 
 .small-text{
@@ -28,6 +28,10 @@ body{
     align-items: center;
     padding: 20px 0;
     border-bottom: 1px solid green;
+}
+
+#filters>div{
+    width: calc(100% / 3);
 }
 
 #genres-select, #sort-select{
